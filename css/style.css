@@ -1122,6 +1122,18 @@ a.btn:focus{
 	ul.social {
 		text-align: center;
 	}
+	.img-responsive
+	{
+		margin-left: 20%;
+	}
+	.display-img
+	{
+		padding:30px;
+	}
+
+
+
+
 
 }
 
