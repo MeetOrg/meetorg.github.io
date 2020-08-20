@@ -193,8 +193,35 @@
             </div>	
 		</div>
 	</section>
-
-
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">New message</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>
+		  <div class="modal-body">
+			<form>
+				<font color="red"><i id="emailResult"></i></font>
+			  <div class="form-group">
+				<label for="recipient-name" class="col-form-label">Email:</label>
+				<input type="text" class="form-control" id="recipient-name">
+			  </div>
+			  <div class="form-group">
+				<label for="message-text" class="col-form-label">Complaint/Feedback:</label>
+				<textarea class="form-control" id="message-text"></textarea>
+			  </div>
+			</form>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			<button type="button" class="btn btn-primary" onclick="sendMessage()">Send message</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
 	<section id="callaction" class="home-section paddingtop-40">	
            <div class="container">
 				<div class="row">
@@ -212,7 +239,7 @@
 								<div class="col-md-4">
 									<div class="wow lightSpeedIn" data-wow-delay="0.1s">
 										<div class="cta-btn">
-										<a href="#" class="btn btn-skin btn-lg">Contact us</a>	
+										<a href="#" class="btn btn-skin btn-lg"  type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Contact us</a>	
 										</div>
 									</div>
 								</div>
@@ -264,18 +291,21 @@
 <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
 
 	<!-- Core JavaScript Files -->
-	<!-- <script src="https://smtpjs.com/v3/smtp.js"> -->
+	<script src="https://smtpjs.com/v3/smtp.js"> 
 	</script>
 	<script>
-Email.send({
-    SecureToken : "61d71749-9846-4277-a266-f0ecc86d64d4",
-    To : 'tibinsunny95@gmail.com',
-    From : "4969@mbcpeermade.com",
-    Subject : "This is the subject",
-    Body : "And this is the body"
+		function sendMessage(){
+			Email.send({
+    	SecureToken : "61d71749-9846-4277-a266-f0ecc86d64d4",
+    	To : 'tibinsunny95@gmail.com',
+		From:'4969@mbcpeermade.com',
+   	 Subject : "MeetOrg FeedBack From : "+document.getElementById('recipient-name').value,
+    Body : document.getElementById('message-text').value
 }).then(
-  message => alert(message)
-);</script>
+  message => $('#emailResult').text(message)
+);
+		}
+</script>
     <script src="js/jquery.min.js"></script>	 
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.easing.min.js"></script>
