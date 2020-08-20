@@ -1124,11 +1124,12 @@ a.btn:focus{
 	}
 	.img-responsive
 	{
-		margin-left: 20%;
+		margin-left: 20px;
 	}
 	.display-img
 	{
 		padding:30px;
+		margin-right: 20px;
 	}
 
 
